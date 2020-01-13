@@ -7,23 +7,25 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import {LoginComponent} from './login/login.component';
-import {HomeComponent} from './home/home.component';
 import {HttpConfig} from "./config/http-config";
 import {NgProgressRouterModule} from "@ngx-progressbar/router";
 import {NgProgressHttpModule} from "@ngx-progressbar/http";
 import {NgProgressModule} from "@ngx-progressbar/core";
 import {HostContainerDirective} from './config/host-container.directive';
 import {RouterModule} from "@angular/router";
+import {IndexComponent} from './home/index/index.component';
+import {RegisterComponent} from './home/register/register.component';
+import {LoginComponent} from "./home/login/login.component";
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
+    IndexComponent,
     LoginComponent,
-    HomeComponent,
-    HostContainerDirective
+    HostContainerDirective,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ registerLocaleData(zh);
     {provide: HTTP_INTERCEPTORS, useClass: HttpConfig, multi: true}
   ],
   entryComponents: [
-    HomeComponent,
+    IndexComponent,
     LoginComponent
   ],
   bootstrap: [AppComponent]

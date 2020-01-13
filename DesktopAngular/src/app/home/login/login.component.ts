@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from "../service/login.service";
-import {Captcha} from "../model/captcha";
+import {Captcha} from "../../model/captcha";
+import {LoginService} from "../../service/login.service";
 
 @Component({
   selector: 'app-login',
@@ -14,6 +14,13 @@ export class LoginComponent implements OnInit {
     this.captcha = {} as Captcha;
   }
 
+  get captchaImg(): string {
+    if (this.captcha && this.captcha.image && this.captcha.image.length) {
+      return 'data:image/png;base64,' + this.captcha.image;
+    }
+    return '';
+  }
+
   ngOnInit() {
     this.loadCaptcha();
   }
@@ -23,5 +30,4 @@ export class LoginComponent implements OnInit {
       this.captcha = i;
     });
   }
-
 }

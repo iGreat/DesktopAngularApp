@@ -1,8 +1,8 @@
 import {Component, ComponentFactoryResolver, OnInit, ViewChild} from '@angular/core';
 import {HostContainerDirective} from "./config/host-container.directive";
 import {LoginService} from "./service/login.service";
-import {HomeComponent} from "./home/home.component";
-import {LoginComponent} from "./login/login.component";
+import {LoginComponent} from "./home/login/login.component";
+import {IndexComponent} from "./home/index/index.component";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.loginService.validToken({}).subscribe(i => {
       if (i) {
-        this.loadComponent(HomeComponent);
+        this.loadComponent(IndexComponent);
       } else {
         this.loadComponent(LoginComponent);
       }

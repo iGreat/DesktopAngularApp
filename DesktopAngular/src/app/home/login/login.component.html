@@ -34,9 +34,9 @@
                   </nz-form-control>
                 </div>
                 <div nz-col nzSpan="6">
-                  <a href="javascript:void(0);" nzType="link" (click)="loadCaptcha()" class="captcha" nz-tooltip
+                  <a href="javascript:void(0);" (click)="loadCaptcha()" class="captcha" nz-tooltip
                      nzTooltipTitle="点击重新获取验证码">
-                    <img [src]="'data:image/png;base64,'+captcha.image" alt="">
+                    <img [src]="captchaImg" alt="">
                   </a>
                 </div>
               </nz-form-item>
