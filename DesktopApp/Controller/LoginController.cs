@@ -1,5 +1,6 @@
 ﻿using DesktopApp.Service;
 using System.Web.Http;
+using Desktop.Model;
 
 namespace DesktopApp.Controller
 {
@@ -12,6 +13,13 @@ namespace DesktopApp.Controller
         public LoginController(ILoginService loginService)
         {
             _loginService = loginService;
+        }
+
+        [Route("captcha")]
+        [HttpGet]
+        public Captcha GenerateCaptcha()
+        {
+            return _loginService.GenerateCaptcha();
         }
 
         [HttpPost]

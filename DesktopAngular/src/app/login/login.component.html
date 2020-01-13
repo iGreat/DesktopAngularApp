@@ -1,1 +1,59 @@
-<p>login works!</p>
+<nz-layout class="app">
+  <nz-header>
+    <h2>
+      <i nz-icon nzType="appstore"></i>
+      混合桌面应用
+    </h2>
+  </nz-header>
+  <nz-content>
+    <nz-card>
+      <nz-card-tab>
+        <nz-tabset>
+          <nz-tab nzTitle="用户名登陆">
+            <div nz-form nzLayout="horizontal">
+              <nz-form-item>
+                <nz-form-control nzErrorTip="没有输入">
+                  <nz-input-group nzPrefixIcon="user">
+                    <input type="text" nz-input placeholder="用户名">
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="没有输入">
+                  <nz-input-group nzPrefixIcon="lock">
+                    <input type="password" nz-input placeholder="密码">
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item nzType="flex" nzGutter="4">
+                <div nz-col nzSpan="12">
+                  <nz-form-control nzErrorTip="没有输入">
+                    <nz-input-group nzPrefixIcon="number">
+                      <input type="text" nz-input placeholder="验证码">
+                    </nz-input-group>
+                  </nz-form-control>
+                </div>
+                <div nz-col nzSpan="6">
+                  <a href="javascript:void(0);" nzType="link" (click)="loadCaptcha()" class="captcha" nz-tooltip
+                     nzTooltipTitle="点击重新获取验证码">
+                    <img [src]="'data:image/png;base64,'+captcha.image" alt="">
+                  </a>
+                </div>
+              </nz-form-item>
+              <nz-form-item nzType="flex">
+                <label nz-checkbox>记住登陆状态</label>
+                <span class="white-space"></span>
+                <a href="javascript:void(0);">忘记密码</a>
+                <button nz-button nzType="primary" class="login-btn">登陆</button>
+                <a href="javascript:void(0);">注册账户</a>
+              </nz-form-item>
+            </div>
+          </nz-tab>
+          <nz-tab nzTitle="扫码登陆">
+            <div nz-form nzLayout="horizontal"></div>
+          </nz-tab>
+        </nz-tabset>
+      </nz-card-tab>
+    </nz-card>
+  </nz-content>
+</nz-layout>

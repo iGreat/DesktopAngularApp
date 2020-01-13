@@ -114,8 +114,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\ApiAuthorizeAttribute.cs" />
+    <Compile Include="Config\UnityConfig.cs" />
     <Compile Include="Controller\ApplicationController.cs" />
-    <Compile Include="UnityConfig.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -158,6 +159,10 @@
     <Content Include="application.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Desktop.Model\Desktop.Model.csproj">
+      <Project>{959cc1e6-f2dc-47ae-b35c-20effdb494b9}</Project>
+      <Name>Desktop.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DesktopApp.Common\DesktopApp.Common.csproj">
       <Project>{22CA3B05-D395-4835-B788-A890E57260D1}</Project>
       <Name>DesktopApp.Common</Name>
@@ -167,7 +172,9 @@
       <Name>DesktopApp.Service</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="AppData" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

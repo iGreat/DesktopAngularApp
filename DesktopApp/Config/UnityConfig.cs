@@ -1,10 +1,10 @@
-using DesktopApp.Common.Attribute;
-using DesktopApp.Service;
 using System;
 using System.Reflection;
+using DesktopApp.Common.Attribute;
+using DesktopApp.Service;
 using Unity;
 
-namespace DesktopApp
+namespace DesktopApp.Config
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.

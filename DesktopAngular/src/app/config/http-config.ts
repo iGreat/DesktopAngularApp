@@ -7,6 +7,8 @@ import {catchError, map} from "rxjs/operators";
 
 @Injectable()
 export class HttpConfig implements HttpInterceptor {
+  public static readonly AUTHKEYNAME = 'APSXAUTH';
+
   constructor(private notifyService: NzNotificationService) {
   }
 
@@ -16,8 +18,17 @@ export class HttpConfig implements HttpInterceptor {
       url = url.substr(1);
     }
 
+    let token = localStorage.getItem(HttpConfig.AUTHKEYNAME);
+    if (!token || !token.length)
+      token = sessionStorage.getItem(HttpConfig.AUTHKEYNAME);
+    if (!token || !token.length)
+      token = '';
+
     const reqCopy = req.clone({
-      url: `${environment.baseUrl}/${url}`
+      url: `${environment.baseUrl}/${url}`,
+      headers: req.headers
+        .set(HttpConfig.AUTHKEYNAME, token)
+        .set('Content-Type', 'application/json; charset=utf-8')
     });
 
     return next.handle(reqCopy)
@@ -26,7 +37,7 @@ export class HttpConfig implements HttpInterceptor {
           this.notifyService.error('发生错误', event.error, {nzDuration: 0});
         }
         return event;
-      }), catchError((error: HttpErrorResponse) => {
+      }), catchError((error: HttpErrorResponse) => {1
         if (typeof error.error === 'string') {
           this.notifyService.error('发生错误', error.error, {nzDuration: 0});
         } else {

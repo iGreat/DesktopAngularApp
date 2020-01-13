@@ -60,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Desktop.Model\Desktop.Model.csproj">
+      <Project>{959cc1e6-f2dc-47ae-b35c-20effdb494b9}</Project>
+      <Name>Desktop.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DesktopApp.Common\DesktopApp.Common.csproj">
       <Project>{22CA3B05-D395-4835-B788-A890E57260D1}</Project>
       <Name>DesktopApp.Common</Name>
